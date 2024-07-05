@@ -28,65 +28,69 @@ const FormLayout = ({ children, setPageType, pageType }: Props) => {
   const oAuthList = [
     ...(feConfigs?.oauth?.wechat && pageType !== LoginPageTypeEnum.wechat
       ? [
-          {
-            label: t('support.user.login.Wechat'),
-            provider: OAuthEnum.wechat,
-            icon: 'common/wechatFill',
-            pageType: LoginPageTypeEnum.wechat
-          }
-        ]
+        {
+          label: t('support.user.login.Wechat'),
+          provider: OAuthEnum.wechat,
+          icon: 'common/wechatFill',
+          pageType: LoginPageTypeEnum.wechat
+        }
+      ]
       : []),
     ...(feConfigs?.oauth?.google
       ? [
-          {
-            label: t('support.user.login.Google'),
-            provider: OAuthEnum.google,
-            icon: 'common/googleFill',
-            redirectUrl: `https://accounts.google.com/o/oauth2/v2/auth?client_id=${feConfigs?.oauth?.google}&redirect_uri=${redirectUri}&state=${state.current}&response_type=code&scope=https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.profile%20https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.email%20openid&include_granted_scopes=true`
-          }
-        ]
+        {
+          label: t('support.user.login.Google'),
+          provider: OAuthEnum.google,
+          icon: 'common/googleFill',
+          redirectUrl: `https://accounts.google.com/o/oauth2/v2/auth?client_id=${feConfigs?.oauth?.google}&redirect_uri=${redirectUri}&state=${state.current}&response_type=code&scope=https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.profile%20https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.email%20openid&include_granted_scopes=true`
+        }
+      ]
       : []),
     ...(feConfigs?.oauth?.github
       ? [
-          {
-            label: t('support.user.login.Github'),
-            provider: OAuthEnum.github,
-            icon: 'common/gitFill',
-            redirectUrl: `https://github.com/login/oauth/authorize?client_id=${feConfigs?.oauth?.github}&redirect_uri=${redirectUri}&state=${state.current}&scope=user:email%20read:user`
-          }
-        ]
+        {
+          label: t('support.user.login.Github'),
+          provider: OAuthEnum.github,
+          icon: 'common/gitFill',
+          redirectUrl: `https://github.com/login/oauth/authorize?client_id=${feConfigs?.oauth?.github}&redirect_uri=${redirectUri}&state=${state.current}&scope=user:email%20read:user`
+        }
+      ]
       : []),
     ...(pageType !== LoginPageTypeEnum.passwordLogin
       ? [
-          {
-            label: t('support.user.login.Password login'),
-            provider: LoginPageTypeEnum.passwordLogin,
-            icon: 'support/account/passwordLogin',
-            pageType: LoginPageTypeEnum.passwordLogin
-          }
-        ]
+        {
+          label: t('support.user.login.Password login'),
+          provider: LoginPageTypeEnum.passwordLogin,
+          icon: 'support/account/passwordLogin',
+          pageType: LoginPageTypeEnum.passwordLogin
+        }
+      ]
       : [])
   ];
   return (
     <Flex flexDirection={'column'} h={'100%'}>
-      <Flex alignItems={'center'}>
+      <Flex
+        direction={'column'}
+        alignItems={'center'}
+        w={'100%'}
+        borderRadius={[0, '24px']}
+        overflow={'hidden'}
+      >
         <Flex
-          w={['48px', '56px']}
-          h={['48px', '56px']}
-          bg={'myGray.25'}
-          borderRadius={'xl'}
-          borderWidth={'1.5px'}
-          borderColor={'borderColor.base'}
-          alignItems={'center'}
-          justifyContent={'center'}
+          w={'100%'}
+          h={['12.8vw', '56px']}
+          pt={'26px'}
+          fontSize={['4.4vw', '26px']}
+          bgColor={'#E3EEFF'}
+          align={'center'}
+          justify={'center'}
         >
-          <Image src={LOGO_ICON} w={['24px', '28px']} alt={'icon'} />
+          登录
         </Flex>
-        <Box ml={3} fontSize={['2xl', '3xl']} fontWeight={'bold'}>
-          {feConfigs?.systemTitle}
-        </Box>
+        <Image src="/icon/login.png" w={['100%', '100%']} alt={'icon'} />
       </Flex>
       {children}
+
       <Box flex={1} />
       {feConfigs?.show_register && oAuthList.length > 0 && (
         <>

@@ -1,25 +1,7 @@
 <head>
     <!-- <script defer type="text/javascript" src="{{ "js/jsdelivr-auto-fallback.js" | absURL }}"></script> -->
     <meta charset="utf-8" />
-    <title>
-        {{- $url := replace .Permalink ( printf "%s" .Site.BaseURL) "" }}
-        {{- if eq $url "/" }}
-            {{- .Site.Title }}
-        {{- else }}
-            {{- if .Params.heading }}
-                {{ .Params.heading }}
-            {{ else }}
-                {{- if eq .Title .Site.Title }}
-                    {{- .Title }}
-                {{- else }}
-                    {{- .Title }} | {{ .Site.Params.docs.Title | default (.Site.Title) }}
-                {{- end }}
-            {{- end }}
-        {{- end -}}
-    </title>
-    {{- if not hugo.IsProduction }}
-    <meta name="robots" content="noindex">
-    {{- end }}
+    <title>AI知识库</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     {{- with .Description | default ($.Param "description") }}
     <meta name="description" content="{{ . }}">

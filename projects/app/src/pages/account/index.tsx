@@ -44,41 +44,41 @@ const Account = ({ currentTab }: { currentTab: TabEnum }) => {
     },
     ...(feConfigs?.isPlus
       ? [
-          {
-            icon: 'support/usage/usageRecordLight',
-            label: t('user.Usage Record'),
-            value: TabEnum.usage
-          }
-        ]
+        {
+          icon: 'support/usage/usageRecordLight',
+          label: t('user.Usage Record'),
+          value: TabEnum.usage
+        }
+      ]
       : []),
     ...(feConfigs?.show_pay && userInfo?.team?.permission.hasWritePer
       ? [
-          {
-            icon: 'support/bill/payRecordLight',
-            label: t('support.wallet.Bills'),
-            value: TabEnum.bill
-          }
-        ]
+        {
+          icon: 'support/bill/payRecordLight',
+          label: t('support.wallet.Bills'),
+          value: TabEnum.bill
+        }
+      ]
       : []),
 
     ...(feConfigs?.show_promotion
       ? [
-          {
-            icon: 'support/account/promotionLight',
-            label: t('user.Promotion Record'),
-            value: TabEnum.promotion
-          }
-        ]
+        {
+          icon: 'support/account/promotionLight',
+          label: t('user.Promotion Record'),
+          value: TabEnum.promotion
+        }
+      ]
       : []),
-    ...(userInfo?.team?.permission.hasWritePer
-      ? [
-          {
-            icon: 'support/outlink/apikeyLight',
-            label: t('user.apikey.key'),
-            value: TabEnum.apikey
-          }
-        ]
-      : []),
+    // ...(userInfo?.team?.permission.hasWritePer
+    //   ? [
+    //       {
+    //         icon: 'support/outlink/apikeyLight',
+    //         label: t('user.apikey.key'),
+    //         value: TabEnum.apikey
+    //       }
+    //     ]
+    //   : []),
     {
       icon: 'support/user/individuation',
       label: t('support.account.Individuation'),
@@ -86,12 +86,12 @@ const Account = ({ currentTab }: { currentTab: TabEnum }) => {
     },
     ...(feConfigs.isPlus
       ? [
-          {
-            icon: 'support/user/informLight',
-            label: t('user.Notice'),
-            value: TabEnum.inform
-          }
-        ]
+        {
+          icon: 'support/user/informLight',
+          label: t('user.Notice'),
+          value: TabEnum.inform
+        }
+      ]
       : []),
 
     {

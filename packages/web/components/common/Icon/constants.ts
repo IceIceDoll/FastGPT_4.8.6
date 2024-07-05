@@ -26,6 +26,7 @@ export const iconPaths = {
   'common/fullScreenLight': () => import('./icons/common/fullScreenLight.svg'),
   'common/gitFill': () => import('./icons/common/gitFill.svg'),
   'common/gitInlight': () => import('./icons/common/gitInlight.svg'),
+  'common/logo': () => import('./icons/common/logo.svg'),
   'common/gitLight': () => import('./icons/common/gitLight.svg'),
   'common/googleFill': () => import('./icons/common/googleFill.svg'),
   'common/importLight': () => import('./icons/common/importLight.svg'),

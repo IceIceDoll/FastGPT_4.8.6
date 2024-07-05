@@ -73,6 +73,7 @@ const LoginForm = ({ setPageType, loginSuccess }: Props) => {
     <FormLayout setPageType={setPageType} pageType={LoginPageTypeEnum.passwordLogin}>
       <Box
         mt={'42px'}
+        px={['5vw', '88px']}
         onKeyDown={(e) => {
           if (e.keyCode === 13 && !e.shiftKey && !requesting) {
             handleSubmit(onclickLogin)();
@@ -106,7 +107,7 @@ const LoginForm = ({ setPageType, loginSuccess }: Props) => {
             })}
           ></Input>
         </FormControl>
-        {feConfigs?.docUrl && (
+        {/* {feConfigs?.docUrl && (
           <Flex alignItems={'center'} mt={7} fontSize={'sm'}>
             {t('support.user.login.Policy tip')}
             <Link
@@ -126,7 +127,7 @@ const LoginForm = ({ setPageType, loginSuccess }: Props) => {
               {t('support.user.login.Privacy')}
             </Link>
           </Flex>
-        )}
+        )} */}
 
         <Button
           type="submit"

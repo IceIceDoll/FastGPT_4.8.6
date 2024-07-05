@@ -191,7 +191,7 @@ const InfoModal = ({ onClose }: { onClose: () => void }) => {
                 onChange={(v) => setValue('defaultPermission', v)}
               />
             </Box>
-            <Box mt={6}>
+            {/* <Box mt={6}>
               <CollaboratorContextProvider
                 permission={appDetail.permission}
                 onGetCollaboratorList={() => getCollaboratorList(appDetail._id)}
@@ -233,7 +233,7 @@ const InfoModal = ({ onClose }: { onClose: () => void }) => {
                   );
                 }}
               </CollaboratorContextProvider>
-            </Box>
+            </Box> */}
           </>
         )}
       </ModalBody>

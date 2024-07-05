@@ -224,7 +224,12 @@ const MyInfo = () => {
             </Flex>
           </Flex>
         )}
-        {feConfigs.isPlus && (
+        {
+          <Flex alignItems={'center'} mt={6}>
+            <Box {...labelStyles}>{t('user.Account')}:&nbsp;</Box>
+            <Box flex={1}>{userInfo?.username}</Box>
+          </Flex>
+        /* {feConfigs.isPlus && (
           <Flex mt={[0, 4]} alignItems={'center'}>
             <Box {...labelStyles}>{t('user.Member Name')}:&nbsp;</Box>
             <Input
@@ -239,15 +244,12 @@ const MyInfo = () => {
                 if (val === userInfo?.team?.memberName) return;
                 try {
                   putUpdateMemberName(val);
-                } catch (error) {}
+                } catch (error) { }
               }}
             />
           </Flex>
         )}
-        <Flex alignItems={'center'} mt={6}>
-          <Box {...labelStyles}>{t('user.Account')}:&nbsp;</Box>
-          <Box flex={1}>{userInfo?.username}</Box>
-        </Flex>
+       
         {feConfigs.isPlus && (
           <Flex mt={6} alignItems={'center'}>
             <Box {...labelStyles}>{t('user.Password')}:&nbsp;</Box>
@@ -277,7 +279,7 @@ const MyInfo = () => {
               )}
             </Flex>
           </Box>
-        )}
+        )} */}
       </Box>
       {isOpenPayModal && <PayModal onClose={onClosePayModal} />}
       {isOpenUpdatePsw && <UpdatePswModal onClose={onCloseUpdatePsw} />}
@@ -557,7 +559,7 @@ const Other = () => {
         {feConfigs?.docUrl && (
           <Link
             bg={'white'}
-            href={getDocPath('/docs/intro')}
+            href='https://bjzgzp.com/dist-pro/login'
             target="_blank"
             display={'flex'}
             py={3}
@@ -570,100 +572,14 @@ const Other = () => {
             textDecoration={'none !important'}
             fontSize={'sm'}
           >
-            <MyIcon name={'common/courseLight'} w={'18px'} color={'myGray.600'} />
+            <MyIcon name={'common/logo'} w={'26px'} h={'26px'} color={'myGray.600'} />
             <Box ml={2} flex={1}>
-              {t('system.Help Document')}
-            </Box>
-          </Link>
-        )}
-        {feConfigs?.chatbotUrl && (
-          <Link
-            href={feConfigs.chatbotUrl}
-            target="_blank"
-            display={'flex'}
-            py={3}
-            px={6}
-            bg={'white'}
-            border={theme.borders.sm}
-            borderWidth={'1.5px'}
-            borderRadius={'md'}
-            alignItems={'center'}
-            userSelect={'none'}
-            textDecoration={'none !important'}
-            fontSize={'sm'}
-          >
-            <MyIcon name={'core/app/aiLight'} w={'18px'} />
-            <Box ml={2} flex={1}>
-              {t('common.system.Help Chatbot')}
+              质量管理系统
             </Box>
           </Link>
         )}
 
-        {feConfigs?.lafEnv && userInfo?.team.role === TeamMemberRoleEnum.owner && (
-          <Flex
-            bg={'white'}
-            py={3}
-            px={6}
-            border={theme.borders.sm}
-            borderWidth={'1.5px'}
-            borderRadius={'md'}
-            alignItems={'center'}
-            cursor={'pointer'}
-            userSelect={'none'}
-            onClick={onOpenLaf}
-            fontSize={'sm'}
-          >
-            <Image src="/imgs/workflow/laf.png" w={'18px'} alt="laf" />
-            <Box ml={2} flex={1}>
-              laf 账号
-            </Box>
-            <Box
-              w={'9px'}
-              h={'9px'}
-              borderRadius={'50%'}
-              bg={userInfo?.team.lafAccount?.token ? '#67c13b' : 'myGray.500'}
-            />
-          </Flex>
-        )}
 
-        {feConfigs?.show_openai_account && (
-          <Flex
-            bg={'white'}
-            py={3}
-            px={6}
-            border={theme.borders.sm}
-            borderWidth={'1.5px'}
-            borderRadius={'md'}
-            alignItems={'center'}
-            cursor={'pointer'}
-            userSelect={'none'}
-            onClick={onOpenOpenai}
-            fontSize={'sm'}
-          >
-            <MyIcon name={'common/openai'} w={'18px'} color={'myGray.600'} />
-            <Box ml={2} flex={1}>
-              OpenAI/OneAPI 账号
-            </Box>
-            <Box
-              w={'9px'}
-              h={'9px'}
-              borderRadius={'50%'}
-              bg={userInfo?.openaiAccount?.key ? '#67c13b' : 'myGray.500'}
-            />
-          </Flex>
-        )}
-        {feConfigs?.concatMd && (
-          <Button
-            variant={'whiteBase'}
-            justifyContent={'flex-start'}
-            leftIcon={<MyIcon name={'modal/concat'} w={'18px'} color={'myGray.600'} />}
-            onClick={onOpenConcat}
-            h={'48px'}
-            fontSize={'sm'}
-          >
-            联系我们
-          </Button>
-        )}
       </Grid>
 
       {isOpenLaf && userInfo && (
